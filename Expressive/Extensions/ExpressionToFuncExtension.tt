@@ -10,9 +10,9 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Expressive.Extensions
+namespace Expressive
 {
-    public static class Expr
+    public static class ExpressionToFuncExtension
     {
 <#
     // Func<...> accepts up to 16 generic args + TResult
@@ -22,12 +22,13 @@ namespace Expressive.Extensions
         var genericType = string.Join(", ", genericRange.Select(n => $"T{n}").Concat(new [] { "TResult" }));
         var functionType = $"Func<{genericType}>";
         var expressionType = $"Expression<{functionType}>";
-#>
-        public static TResult Invoke<<#= genericType #>>(this <#= expressionType #> expression)
-        {
-            var compiled = expression.Compile();
 
-            return compiled(p0);
+        var toFuncParameters = new string[] { $"this {expressionType} expression" };
+#>
+        public static <#= functionType #> ToFunc<<#= genericType #>>(
+            <#= string.Join(", ", toFuncParameters) #>)
+        {
+            return expression.Compile();
         }
 
 <#

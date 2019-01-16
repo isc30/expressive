@@ -13,9 +13,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Extensions\ExpressionInvokeExtension.tt">
+    <None Update="Extensions\ExpressionCallExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ExpressionInvokeExtension.cs</LastGenOutput>
+      <LastGenOutput>ExpressionCallExtension.cs</LastGenOutput>
+    </None>
+    <None Update="Extensions\ExpressionToFuncExtension.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ExpressionToFuncExtension.cs</LastGenOutput>
+    </None>
+    <None Update="Helpers\Func.tt">
+      <LastGenOutput>Func.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Update="Helpers\Expr.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -28,10 +36,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Extensions\ExpressionInvokeExtension.cs">
+    <Compile Update="Extensions\ExpressionCallExtension.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ExpressionInvokeExtension.tt</DependentUpon>
+      <DependentUpon>ExpressionCallExtension.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Extensions\ExpressionToFuncExtension.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExpressionToFuncExtension.tt</DependentUpon>
     </Compile>
     <Compile Update="Helpers\Expr.cs">
       <DesignTime>True</DesignTime>
