@@ -10,6 +10,7 @@ LinqKit:
 
 Extras:
 - [ ] Call with constants (think proper syntax)
+- [ ] Optimize Call/ToFunc to simple call stack and avoid compiling the same expression multiple times
 - [ ] Expression.Compile() with DebugInfoGenerator
 - [ ] ConstExpr optimizer
 - [ ] Helper functions (member path extractor?)
