@@ -29,3 +29,6 @@ Security:
 SQL:
 
 - [ ] Expression to SQL function
+
+Extras:
+- ToTraceString
