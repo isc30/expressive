@@ -17,6 +17,7 @@ Extras:
 - [ ] Static method replacer (replace the call with logic)
 - [ ] Functional Monads
 - [ ] Functional Try/Catch
+- [ ] Date/DateRange functions
 
 Linq To Expressions:
 - [ ] Tree functions for `Expression` (descendants, children, etc)
