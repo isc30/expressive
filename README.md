@@ -1,7 +1,6 @@
 # Expressive
 
 LinqKit:
-
 - [x] Shortcut expression/function builder methods (`Expr.New`/`Func.New`)
 - [x] Invoke/Expand (`call`/`inline` in expressive)
 - [ ] IQueryable provider
@@ -11,7 +10,7 @@ LinqKit:
 
 Extras:
 - [ ] Call with constants (think proper syntax)
-- [ ] Expression.Compile() with debug information
+- [ ] Expression.Compile() with DebugInfoGenerator
 - [ ] ConstExpr optimizer
 - [ ] Helper functions (member path extractor?)
 - [ ] Static method replacer (replace the call with logic)
@@ -23,12 +22,11 @@ Linq To Expressions:
 - [ ] Tree query builder
 
 Security:
-
-- [ ] Restrictions
+- [ ] Security Restrictions
 
 SQL:
 
-- [ ] Expression to SQL function
+- [ ] Expression to SQL view / function
 
 Extras:
-- ToTraceString
+- [ ] ToTraceString
