@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq.Expressions;
-using Expressive.UnitTests.Helpers;
+﻿using Expressive.UnitTests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Expressive.UnitTests.Tests.Extensions
+namespace Expressive.UnitTests.InlineCall.Tests.Extensions
 {
     [TestClass]
     public class ExpressionCallExtensionTest
@@ -28,7 +26,7 @@ namespace Expressive.UnitTests.Tests.Extensions
         {
             var comparer = Expr.New((int x) => x < max);
 
-            Assert.AreEqual(comparer.Call(n), expected);
+            Assert.AreEqual(expected, comparer.Call(n));
         }
 
         [TestMethod]
@@ -47,24 +45,34 @@ namespace Expressive.UnitTests.Tests.Extensions
         }
 
         [TestMethod]
-        public void Expanded_Call()
+        public void Inlined_Call_1Args()
+        {
+            var predicate = Expr.New(() => 50);
+
+            Assert.IsTrue(ExpressionAssert.ExpressionEquals(
+               Expr.New((int n) => 50),
+               Expr.New((int n) => predicate.Call()).Inline()));
+        }
+
+        [TestMethod]
+        public void Inlined_Call()
         {
             var predicate = Expr.New((int n, int d) => n < d);
 
             Assert.IsTrue(ExpressionAssert.ExpressionEquals(
                Expr.New((int n) => n < 22),
-               Expr.New((int n) => predicate.Call(n, 22)).Expand()));
+               Expr.New((int n) => predicate.Call(n, 22)).Inline()));
         }
 
         [TestMethod]
-        public void Expanded_NestedCalls()
+        public void Inlined_NestedCalls()
         {
-            Expression<Func<int, int, bool>> predicate = (n, d) => n < d;
-            Expression<Func<int, int, bool>> predicate2 = (n, d) => (n == d || predicate.Call(n, d));
+            var predicate = Expr.New((int n, int d) => n < d);
+            var predicate2 = Expr.New((int n, int d) => (n == d || predicate.Call(n, d)));
 
             Assert.IsTrue(ExpressionAssert.ExpressionEquals(
-                (Expression<Func<int, bool>>)(n => n == 45 || n < 45),
-                Expr.New((int n) => predicate2.Call(n, 45)).Expand()));
+                Expr.New((int n) => n == 45 || n < 45),
+                Expr.New((int n) => predicate2.Call(n, 45)).Inline()));
         }
     }
 }

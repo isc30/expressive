@@ -13,21 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Expressive.Core\Expressive.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Extensions\ExpressionCallExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ExpressionCallExtension.cs</LastGenOutput>
-    </None>
-    <None Update="Extensions\ExpressionToFuncExtension.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ExpressionToFuncExtension.cs</LastGenOutput>
-    </None>
-    <None Update="Helpers\Func.tt">
-      <LastGenOutput>Func.cs</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Update="Helpers\Expr.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Expr.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -40,16 +32,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ExpressionCallExtension.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Extensions\ExpressionToFuncExtension.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ExpressionToFuncExtension.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Helpers\Expr.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Expr.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

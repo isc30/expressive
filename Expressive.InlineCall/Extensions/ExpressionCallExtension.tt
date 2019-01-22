@@ -29,9 +29,7 @@ namespace Expressive
         public static TResult Call<<#= genericType #>>(
             <#= string.Join(", ", callParameters) #>)
         {
-            var compiled = expression.ToFunc();
-
-            return compiled(<#= string.Join(", ", genericRange.Select(n => $"p{n}")) #>);
+            return expression.Compile()(<#= string.Join(", ", genericRange.Select(n => $"p{n}")) #>);
         }
 
 <#

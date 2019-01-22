@@ -5,7 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>Expressive.UnitTests</RootNamespace>
+    <RootNamespace>Expressive.UnitTests.Core</RootNamespace>
+
+    <AssemblyName>Expressive.UnitTests.Core</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Expressive\Expressive.csproj" />
+    <ProjectReference Include="..\Expressive.Core\Expressive.Core.csproj" />
   </ItemGroup>
 
 </Project>

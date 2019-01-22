@@ -5,8 +5,18 @@ using System.Linq.Expressions;
 
 namespace Expressive.ExpressionVisitors
 {
-    public class ExpressionCallExpander : ExpressionVisitor
+    public sealed class CallExtensionInliner : ExpressionVisitor
     {
+        public static Expression Inline<TExpr>(Expression expression)
+            where TExpr : Expression
+        {
+            return (TExpr)new CallExtensionInliner().Visit(expression);
+        }
+
+        private CallExtensionInliner()
+        {
+        }
+
         protected override Expression VisitMember(MemberExpression node)
         {
             return base.VisitMember(node);
@@ -22,32 +32,32 @@ namespace Expressive.ExpressionVisitors
         {
             var invokedMethod = node.Method.GetGenericMethodDefinition();
 
-            var callMethod = typeof(ExpressionCallExtension).GetMethods()
+            var expressionCallMethod = typeof(ExpressionCallExtension).GetMethods()
                 .Where(m => m.Name == nameof(ExpressionCallExtension.Call))
-                .SingleOrDefault(m => m == invokedMethod);
+                .FirstOrDefault(m => m == invokedMethod);
 
-            if (callMethod == null)
+            if (expressionCallMethod == null)
             {
                 return null;
             }
 
             var lambdaToInline = ExtractLambdaExpression(Visit(node.Arguments.First()));
-            var arguments = node.Arguments.Skip(1).Select(Visit).ToArray();
+            var arguments = node.Arguments.Skip(1).Select(Visit).ToList();
             var replacements = GetReplacements(lambdaToInline.Parameters, arguments);
-            var replacedLambda = ParameterReplacer.Replace(lambdaToInline, replacements);
+            var replacedLambda = LambdaParameterReplacer.Replace(lambdaToInline, replacements);
 
             return Visit(replacedLambda.Body);
         }
 
-        private static LambdaExpression ExtractLambdaExpression(Expression member)
+        private static LambdaExpression ExtractLambdaExpression(Expression thisExpression)
         {
             return (LambdaExpression)Expression
-                .Lambda<Func<object>>(Expression.Convert(member, typeof(object)))
+                .Lambda<Func<object>>(Expression.Convert(thisExpression, typeof(object)))
                 .Compile()();
         }
 
-        private static IDictionary<ParameterExpression, Expression> GetReplacements(
-            IEnumerable<ParameterExpression> parameters,
+        private static IReadOnlyDictionary<ParameterExpression, Expression> GetReplacements(
+            IReadOnlyList<ParameterExpression> parameters,
             IReadOnlyList<Expression> arguments)
         {
             return parameters

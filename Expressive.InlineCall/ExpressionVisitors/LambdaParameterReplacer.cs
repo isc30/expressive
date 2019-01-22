@@ -4,30 +4,26 @@ using System.Linq.Expressions;
 
 namespace Expressive.ExpressionVisitors
 {
-    public class ParameterReplacer : ExpressionVisitor
+    public sealed class LambdaParameterReplacer : ExpressionVisitor
     {
         public static LambdaExpression Replace(
             LambdaExpression expression,
-            IDictionary<ParameterExpression, Expression> replacements)
+            IReadOnlyDictionary<ParameterExpression, Expression> replacements)
         {
-            return (LambdaExpression)new ParameterReplacer(replacements).Visit(expression);
+            return (LambdaExpression)new LambdaParameterReplacer(replacements).Visit(expression);
         }
 
-        private readonly IDictionary<ParameterExpression, Expression> _replacements;
+        private readonly IReadOnlyDictionary<ParameterExpression, Expression> _replacements;
 
-        public ParameterReplacer(
-            IDictionary<ParameterExpression, Expression> replacements)
+        private LambdaParameterReplacer(
+            IReadOnlyDictionary<ParameterExpression, Expression> replacements)
         {
             _replacements = replacements;
         }
 
-        protected override Expression VisitLambda<T>(
-            Expression<T> node)
+        protected override Expression VisitLambda<TDelegate>(Expression<TDelegate> node)
         {
-            var parameters =
-                node.Parameters.Where(
-                    p => !_replacements.ContainsKey(p) || !(_replacements[p] is ConstantExpression));
-
+            var parameters = node.Parameters.Where(p => !_replacements.ContainsKey(p));
             var body = Visit(node.Body) ?? Expression.Empty();
 
             return Expression.Lambda(body, parameters);
