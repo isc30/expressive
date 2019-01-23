@@ -14,7 +14,7 @@ Extras:
 - [ ] Expression.Compile() with DebugInfoGenerator
 - [ ] ConstExpr optimizer
 - [ ] Helper functions (member path extractor?)
-- [ ] Static method replacer (replace the call with logic)
+- [ ] Static method replacer (replace the call with logic) (https://blog.staticvoid.co.nz/2016/composable_repositories_-_nesting_extensions/)
 - [ ] Functional Monads
 - [ ] Functional Try/Catch
 - [ ] Date/DateRange functions
