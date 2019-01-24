@@ -3,7 +3,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Expressive
+namespace Expressive.InlineCall
 {
     public static class ExpressionCallExtension
     {

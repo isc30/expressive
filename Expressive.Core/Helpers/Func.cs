@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Expressive
 {
-    public static class Func
+    public static partial class Func
     {
         public static Func<TResult> New<TResult>(Func<TResult> e) => e;
 

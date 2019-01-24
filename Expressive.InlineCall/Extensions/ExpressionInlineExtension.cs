@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
-using Expressive.ExpressionVisitors;
+using Expressive.InlineCall.ExpressionVisitors;
 
-namespace Expressive
+namespace Expressive.InlineCall
 {
     public static class ExpressionInlineExtension
     {

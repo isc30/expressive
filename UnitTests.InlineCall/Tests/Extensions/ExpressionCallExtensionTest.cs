@@ -1,5 +1,6 @@
 ﻿using Expressive.UnitTests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Expressive.InlineCall;
 
 namespace Expressive.UnitTests.InlineCall.Tests.Extensions
 {

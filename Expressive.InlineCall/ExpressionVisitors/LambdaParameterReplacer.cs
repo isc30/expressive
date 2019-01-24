@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Expressive.ExpressionVisitors
+namespace Expressive.InlineCall.ExpressionVisitors
 {
     public sealed class LambdaParameterReplacer : ExpressionVisitor
     {
