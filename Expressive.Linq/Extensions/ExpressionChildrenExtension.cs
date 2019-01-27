@@ -19,6 +19,7 @@ namespace Expressive.Linq
         public static IEnumerable<Expression> Children(this BinaryExpression parent)
         {
             yield return parent.Left;
+            yield return parent.Conversion;
             yield return parent.Right;
         }
 
@@ -41,6 +42,29 @@ namespace Expressive.Linq
             }
 
             yield return parent.Body;
+        }
+
+        /// <summary>
+        /// All nodes directly connected to this parent
+        /// </summary>
+        public static IEnumerable<Expression> Children(this BlockExpression parent)
+        {
+            foreach (var variable in parent.Variables)
+            {
+                yield return variable;
+            }
+
+            // TODO: VisitBlockExpressions
+        }
+
+        /// <summary>
+        /// All nodes directly connected to this parent
+        /// </summary>
+        public static IEnumerable<Expression> Children(this ConditionalExpression parent)
+        {
+            yield return parent.Test;
+            yield return parent.IfTrue;
+            yield return parent.IfFalse;
         }
 
         /// <summary>

@@ -1,6 +1,11 @@
 ﻿using Expressive.UnitTests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Expressive.InlineCall;
+using System.Linq.Expressions;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
+using System;
 
 namespace Expressive.UnitTests.InlineCall.Tests.Extensions
 {

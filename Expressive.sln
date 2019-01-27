@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linq", "Linq", "{8551B1E4-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expressive.Linq", "Expressive.Linq\Expressive.Linq.csproj", "{D95237BE-B71F-40C8-988E-8A848A4F40DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.Linq", "UnitTests.Linq\UnitTests.Linq.csproj", "{39FFEA74-9125-431D-BB7C-BD60D567F0EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{D95237BE-B71F-40C8-988E-8A848A4F40DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D95237BE-B71F-40C8-988E-8A848A4F40DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D95237BE-B71F-40C8-988E-8A848A4F40DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39FFEA74-9125-431D-BB7C-BD60D567F0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39FFEA74-9125-431D-BB7C-BD60D567F0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39FFEA74-9125-431D-BB7C-BD60D567F0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39FFEA74-9125-431D-BB7C-BD60D567F0EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{2EADFB50-6AEB-4A1A-A780-AEBA1D262807} = {2D6EA89E-9694-40AA-BEC3-B3BB55047144}
 		{184E36E9-4D36-4A75-8B1E-3AD488A08D85} = {18AFD3F7-D3E5-4614-BB58-F8E0B1C2DD85}
 		{D95237BE-B71F-40C8-988E-8A848A4F40DA} = {8551B1E4-886F-4174-AC2E-7BB937911C92}
+		{39FFEA74-9125-431D-BB7C-BD60D567F0EC} = {8551B1E4-886F-4174-AC2E-7BB937911C92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2324474A-8FD6-4794-8B05-4ED8B00380F0}
