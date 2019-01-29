@@ -18,6 +18,7 @@ Extras:
 - [ ] Functional Monads
 - [ ] Functional Try/Catch
 - [ ] Date/DateRange functions
+- [ ] Variables in IQueryable
 
 Linq To Expressions:
 - [ ] Tree functions for `Expression` (descendants, children, etc)
