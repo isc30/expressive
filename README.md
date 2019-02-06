@@ -1,4 +1,9 @@
+# THIS IS A WORK IN PROGRESS. I'M ALSO WRITING ARTICLES ABOUT IT
+
 # Expressive
+Finslly a fully fledged utility library to deal with expressions
+
+# Roadmap
 
 LinqKit:
 - [x] Shortcut expression/function builder methods (`Expr.New`/`Func.New`)
