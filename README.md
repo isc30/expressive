@@ -1,4 +1,4 @@
-# THIS IS A WORK IN PROGRESS. I'M ALSO WRITING ARTICLES ABOUT IT
+# WORK IN PROGRESS. I'M ALSO WRITING ARTICLES ABOUT THIS
 
 # Expressive
 Finslly a fully fledged utility library to deal with expressions
